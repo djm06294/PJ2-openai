@@ -1,0 +1,34 @@
+{
+  "MultipleQuestion": [
+    {
+      "question": "네트워크에서 OSI 모델의 7계층 중 데이터 전송을 담당하는 계층은 무엇인가요?",
+      "options": [
+        "물리 계층",
+        "데이터 링크 계층",
+        "네트워크 계층",
+        "전송 계층"
+      ],
+      "answer": "전송 계층"
+    },
+    {
+      "question": "TCP/IP 모델에서 데이터 전송을 담당하는 프로토콜은 무엇인가요?",
+      "options": ["HTTP", "FTP", "TCP", "IP"],
+      "answer": "TCP"
+    },
+    {
+      "question": "로컬 네트워크에서 컴퓨터를 고유하게 식별하기 위해 사용되는 주소 체계는?",
+      "options": ["MAC 주소", "IP 주소", "서브넷 마스크", "도메인 이름"],
+      "answer": "MAC 주소"
+    },
+    {
+      "question": "다수의 컴퓨터가 공유하는 네트워크에서 충돌을 방지하기 위해 사용되는 기술은?",
+      "options": ["CSMA/CD", "ARP", "NAT", "DNS"],
+      "answer": "CSMA/CD"
+    },
+    {
+      "question": "인터넷을 통해 전송되는 웹페이지를 표시하는 데 사용되는 프로토콜은 무엇인가요?",
+      "options": ["FTP", "SMTP", "HTTP", "TCP"],
+      "answer": "HTTP"
+    }
+  ]
+}
