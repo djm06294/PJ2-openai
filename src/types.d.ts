@@ -1,3 +1,8 @@
+declare module "*.module.css" {
+  const classes: { [key: string]: string };
+  export default classes;
+}
+
 interface ImportMeta {
   env: {
     VITE_OPENAI_API_KEY: string;
