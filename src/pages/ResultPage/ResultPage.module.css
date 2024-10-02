@@ -1,6 +1,6 @@
 .resultBody {
   background-color: var(--c-silver);
-  height: 100vh;
+  min-height: 100vh;
   /* border: 3px solid black; */
   /* margin-top: 6rem; */
   padding-top: 6rem;
