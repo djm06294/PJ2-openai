@@ -1,8 +1,16 @@
 # [FE DevCourse PJ2] CS 퀴즈 사이트 (openai)
 
+> ---
+>
+> 안녕하세요! 저는 Team 6의 김주영입니다.
+>
 > 이 프로젝트는 openai api를 사용하여 CS의 여러 주제들에 관한 문제를 생성해주는 사이트입니다.
+>
+> click -> [배포 링크](https://pj2csquiz.netlify.app) <-
+>
+> ---
 
-\- Team 6 김주영
+<br/>
 
 1. HomePage :
 
@@ -35,16 +43,21 @@
 
 4. QuizPage :
 
-   내가 선택한 옵션에 맞는 문제들이 swiper 형식으로 나옵니다.
+   내가 선택한 옵션에 맞는 문제들이 swiper 형식으로 나옵니다. 모든 문제에 대한 정답을 클릭했다면 '제출' 버튼이 활성화 됩니다.
 
-   <img src="./readme_img/QuizPage.JPG" style="width:60%; margin-left:15%">
+   <img src="./readme_img/QuizPage1.JPG" style="width:60%; margin-left:15%">
+   <img src="./readme_img/QuizPage2.JPG" style="width:60%; margin-left:15%">
+   <img src="./readme_img/QuizPage3.JPG" style="width:60%; margin-left:15%">
 
    <br/>
    <br/>
 
-5. ResultPage (구현안됨) :
+5. ResultPage:
 
-   문제풀이의 결과와 해설이 나옵니다.
+   문제풀이의 결과가 나옵니다. (해설은 생략)
+
+   <img src="./readme_img/ResultPage1.JPG" style="width:60%; margin-left:15%">
+
    <br/>
    <br/>
 
@@ -52,17 +65,23 @@
 
    ### 구현하지 못한 부분
 
-   - search bar 기능
-   - 객관식 외의 다른 문제 유형
-   - 모달 닫기 기능
-   - LoadingPage의 css
-   - QuizPage의 문제선택/제출 기능
-   - ResultPage
-   - ResultPage의 채점기능
-   - ResultPage에 띄울 오답해설 쿼리
+   - [ ] search bar 기능
+   - [ ] 객관식 외의 다른 문제 유형
+   - [ ] 모달 닫기 기능
+   - [ ] LoadingPage의 css
+   - [x] QuizPage의 문제선택/제출 기능
+   - [x] ResultPage
+   - [x] ResultPage의 채점기능
+   - [ ] ~~ResultPage에 띄울 오답해설 쿼리~~
+   - [ ] 내 문제 책갈피 기능 / 오답문제 저장 기능 (localstorage)
 
    ### 해결해야할 오류
 
-   - TopicsPage에서 화면의 높이가 작아질 경우 scroll시 모달창 뒷부분이 보임
-   - QuizPage로딩 후 문제가 다시 fetch되어서 화면의 문제가 바뀜
-   - 반응형 디자인
+   - [ ] TopicsPage에서 화면의 높이가 작아질 경우 scroll시 모달창 뒷부분이 보임
+   - [ ] QuizPage로딩 후 문제가 다시 fetch되어서 화면의 문제가 바뀜
+   - [ ] QuizPage 새로고침 및 다시 들어왔을 떄 퀴즈가 사라짐
+   - [ ] ResultPage에서 채점시 '<', '>' 문자를 '&lt', '&gt'로 저장하여 정답인데 오답이 되는 문제
+   - [ ] ResultPage 새로고침 및 다시 들어왔을 떄 모든 정보가 사라짐
+
+   - [ ] 반응형 디자인
+   - [ ] 전반적 CSS
