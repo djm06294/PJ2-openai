@@ -1,0 +1,50 @@
+.resultBody {
+  background-color: var(--c-silver);
+  height: 100vh;
+  /* border: 3px solid black; */
+  /* margin-top: 6rem; */
+  padding-top: 6rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: baseline;
+  align-items: center;
+}
+
+.resultSec {
+  background-color: white;
+  border-radius: 2rem;
+  box-shadow: 0 10px 20px var(--c-grayPale);
+  padding: 3rem;
+  min-height: 20rem;
+
+  /* 없어도 되나? */
+  min-width: 50rem;
+  max-width: 80vw;
+}
+
+.resultSec h2 {
+  font-size: 2rem;
+  text-align: center;
+}
+
+.resultSec .totResults {
+  display: flex;
+  justify-content: center;
+}
+
+.resultSec .totResults div {
+  border: 1px solid red;
+}
+
+.toHomeBtn {
+  font-size: 1.5rem;
+  background-color: var(--color-main);
+  color: var(--color-primaryPale);
+  border-radius: 2rem;
+  padding: 0.5rem 2rem;
+  margin-top: 2rem;
+}
+
+.toHomeBtn:hover {
+  box-shadow: 0 0 4px var(--c-grayLight);
+}

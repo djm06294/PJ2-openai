@@ -1,0 +1,35 @@
+.results {
+  border: 1px solid black;
+  border-radius: 1rem;
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.results.correct {
+  border: 2px solid yellowgreen;
+}
+
+.results.wrong {
+  border: 2px solid red;
+}
+
+.results .question,
+.results .answer,
+.results .correctAns {
+  font-size: 1.2rem;
+  padding: 0.2rem 0;
+}
+
+.results .correctAns {
+  padding-left: 2rem;
+  color: red;
+}
+
+.results.wrong .wrongAns {
+  color: var(--c-grayPale);
+  text-decoration: line-through;
+}
+.results i {
+  color: var(--c-grayPale);
+  margin-right: 0.5rem;
+}
