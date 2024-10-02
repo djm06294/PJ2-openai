@@ -1,20 +1,45 @@
 .swiperWrap {
   /* border: 3px solid gray; */
-  position: relative;
+  /* position: relative; */
+  height: 90vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
 }
 .swiper {
   /* border: 1px solid red; */
   box-shadow: 0 0 16px var(--c-gray);
   border-radius: 2rem;
-  position: absolute;
+  margin: 5rem;
+  /* position: absolute; */
   width: 60vw;
-  height: 35vw;
+  min-height: 35vw;
 
-  left: 50%;
+  /* left: 50%;
   top: 10rem;
-  transform: translateX(-50%);
+  transform: translateX(-50%); */
 }
 .swiperWrap img {
   width: 20rem;
   object-fit: contain;
+}
+
+.submitBtn {
+  font-size: 2rem;
+  color: var(--color-primaryPale);
+  border-radius: 4rem;
+  background-color: var(--color-primaryLight);
+  padding: 1rem 2rem;
+  cursor: default;
+}
+
+.submitBtn.active {
+  color: white;
+  background-color: var(--color-main);
+  cursor: pointer;
+}
+
+.submitBtn.active:hover {
+  box-shadow: 0 0 4px var(--c-gray);
 }

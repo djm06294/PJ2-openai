@@ -5,6 +5,7 @@ interface QuizState {
   quizzes: Quiz[]; // 상태 타입 명시
   setQuiz: (data: Quiz[]) => void; // 상태 변경 함수 타입 명시
   removeQuiz: () => void;
+  getCountQuiz: () => number;
 }
 
 interface QuizSetting {
@@ -16,11 +17,19 @@ interface QuizSetting {
   resetQuizOption: () => void; // 초기 상태로 돌려놓는 함수
 }
 
+interface UserAnswer {
+  answers: string[];
+  setAnswer: (idx: number, ans: string) => void;
+  removeAnswer: () => void;
+  getCountAnswer: () => number;
+}
+
 // Quiz 관련 상태 저장소
-const useQuiz = create<QuizState>((set) => ({
+const useQuiz = create<QuizState>((set, get) => ({
   quizzes: [],
   setQuiz: (data: Quiz[]) => set(() => ({ quizzes: data })),
   removeQuiz: () => set({ quizzes: [] }),
+  getCountQuiz: () => get().quizzes.length,
 }));
 
 // Quiz 옵션 관련 상태 저장소
@@ -59,5 +68,18 @@ const useQuizOption = create<QuizSetting>((set) => ({
     })),
 }));
 
+const userAnswer = create<UserAnswer>((set, get) => ({
+  answers: [],
+  setAnswer: (idx: number, ans: string) =>
+    set((state) => {
+      const updatedAnswers = [...state.answers]; // 기존 배열 복사
+      updatedAnswers[idx] = ans; // 해당 인덱스에 값을 저장
+      return { answers: updatedAnswers }; // 상태 업데이트
+    }),
+  removeAnswer: () => set({ answers: [] }),
+  getCountAnswer: () => get().answers.filter((ans) => !!ans).length,
+}));
+
 export default useQuiz;
 export { useQuizOption };
+export { userAnswer };

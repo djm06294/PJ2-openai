@@ -18,7 +18,7 @@
 }
 
 .slide .options {
-  border: 1px solid red;
+  /* border: 1px solid red; */
 }
 
 .slide .options button {
@@ -27,6 +27,14 @@
   border-radius: 1rem;
   height: 4rem;
   margin-bottom: 2rem;
+  padding: 0.2rem 2rem;
 
   text-align: left;
+}
+
+.slide .options button:hover,
+.slide .options button.active {
+  box-shadow: 0 0 6px var(--color-main);
+}
+.slide .options button.active::after {
 }

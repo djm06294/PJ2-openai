@@ -1,6 +1,6 @@
-// import { useQuery } from "@tanstack/react-query";
 // import { useEffect, useState } from "react";
 import useQuiz from "../../quiz_zustand.ts";
+import { userAnswer } from "../../quiz_zustand.ts";
 
 import { Navigation, Pagination, Scrollbar, A11y } from "swiper/modules";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -13,9 +13,18 @@ import "../../types.d.ts";
 import styles from "./QuizPage.module.css";
 import Header from "../../components/Header/Header.tsx";
 import QuizSlide from "../../components/QuizSlide/QuizSlide.tsx";
+import { Link } from "react-router-dom";
+import { useEffect, useState } from "react";
 
 export default function QuizPage() {
-  const { quizzes } = useQuiz((state) => state);
+  const { quizzes, getCountQuiz } = useQuiz((state) => state);
+  const { answers, getCountAnswer } = userAnswer((state) => state);
+  const [isSubmitActive, setIsSubmitActive] = useState(false);
+
+  useEffect(() => {
+    if (getCountQuiz() != 0 && getCountAnswer() === getCountQuiz())
+      setIsSubmitActive(true);
+  }, [answers]);
   return (
     <>
       <Header />
@@ -35,6 +44,17 @@ export default function QuizPage() {
             </SwiperSlide>
           ))}
         </Swiper>
+        <Link to="/result">
+          <button
+            className={`${styles.submitBtn} ${
+              isSubmitActive ? styles.active : ""
+            }`}
+            disabled={!isSubmitActive}
+            // onClick={}
+          >
+            제출하기
+          </button>
+        </Link>
       </div>
     </>
   );
