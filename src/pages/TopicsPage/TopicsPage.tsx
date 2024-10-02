@@ -33,6 +33,12 @@ export default function TopicsPage() {
     setShowModal(true);
   };
 
+  // 모달 닫기 & 주제는 default로 돌려놓기
+  const closeModal = () => {
+    setTopic("객관식");
+    setShowModal(false);
+  };
+
   useEffect(() => {
     getTopics().then((data) => {
       if (data) setTopics(data);
@@ -44,7 +50,7 @@ export default function TopicsPage() {
   return (
     <>
       <Header />
-      {showModal && <OptionModal />}
+      {showModal && <OptionModal closeFunc={closeModal} />}
 
       <main className={`${styles.topicsBody} mw`}>
         <h2>

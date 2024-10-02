@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useQuizOption } from "../../quiz_zustand.ts";
 import styles from "./OptionModal.module.css";
 
@@ -10,20 +10,17 @@ import "../../types.d.ts";
 
 const probTypes: QuizType[] = ["객관식", "빈칸 채우기", "OX 퀴즈"];
 
-export default function OptionModal() {
+export default function OptionModal({ closeFunc }: { closeFunc: () => void }) {
   const [activeProbType, setActiveProbType] = useState<number>(0);
   const [probLevel, setProbLevel] = useState<string>("중"); // 난의도 상태 추가
   const [probNum, setProbNum] = useState<string>("10"); // 문제 수 상태 추가
-  const { quizOption, setType, setDiff, setNum } = useQuizOption(
-    (state) => state
-  );
+  const { quizOption, setType, setDiff, setNum, resetQuizOption } =
+    useQuizOption((state) => state);
 
   // 문제유형버튼 클릭시 전역에 저장
   const selectProbType = (idx: number) => {
     setActiveProbType(idx);
     setType(probTypes[idx]);
-
-    console.log(quizOption);
   };
 
   // 난의도 선택시 전역에 저장
@@ -31,7 +28,6 @@ export default function OptionModal() {
     const temp = e.target.value as Difficulty;
     setProbLevel(e.target.value);
     setDiff(temp);
-    console.log(quizOption);
   };
 
   // 문제 수 선택시 전역에 저장
@@ -39,12 +35,20 @@ export default function OptionModal() {
     const temp = e.target.value as QuizNum;
     setProbNum(e.target.value);
     setNum(temp);
-    console.log(quizOption);
   };
 
-  // useEffect(() => {
-  //   console.log("id", activeProbType);
-  // }, [activeProbType]);
+  // 모달 창 닫으면 모든 값 reset
+  const closeModalFunc = () => {
+    resetQuizOption();
+    setActiveProbType(0);
+    setProbLevel("중");
+    setProbNum("10");
+    closeFunc();
+  };
+
+  useEffect(() => {
+    console.log(quizOption);
+  }, [quizOption]);
   return (
     <>
       <div className={styles.modalBackground}></div>
@@ -89,7 +93,11 @@ export default function OptionModal() {
         <Link to="/loading">
           <button className={styles.submitBtn}>퀴즈 생성</button>
         </Link>
-        <FontAwesomeIcon icon={faClose} className={styles.closeBtn} />
+        <FontAwesomeIcon
+          icon={faClose}
+          className={styles.closeBtn}
+          onClick={closeModalFunc}
+        />
       </div>
     </>
   );

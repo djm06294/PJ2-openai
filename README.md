@@ -67,7 +67,7 @@
 
    - [ ] search bar 기능
    - [ ] 객관식 외의 다른 문제 유형
-   - [ ] 모달 닫기 기능
+   - [x] 모달 닫기 기능
    - [ ] LoadingPage의 css
    - [x] QuizPage의 문제선택/제출 기능
    - [x] ResultPage
