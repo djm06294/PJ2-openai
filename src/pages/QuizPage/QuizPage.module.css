@@ -25,6 +25,25 @@
   object-fit: contain;
 }
 
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-color: var(--color-primary);
+}
+
+.swiper-pagination-progressbar {
+  --swiper-pagination-progressbar-bg-color: var(--c-silver);
+  top: 20px;
+  border-radius: 2rem;
+}
+.swiper-pagination-horizontal {
+  border-radius: 2rem !important;
+  height: 2rem !important;
+  width: 80% !important;
+}
+.swiper-pagination {
+  z-index: 3;
+}
+
 .submitBtn {
   font-size: 2rem;
   color: var(--color-primaryPale);

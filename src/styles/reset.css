@@ -5,6 +5,8 @@
   --color-primaryLight: #f39191;
   --color-primaryPale: #fdeded;
 
+  --swiper-theme-color: var(--color-main);
+
   --c-black: #070809;
   --c-grayDark: #343b42;
   --c-gray: #4a545f;
