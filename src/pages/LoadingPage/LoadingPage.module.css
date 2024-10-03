@@ -1,0 +1,58 @@
+.loadingDiv {
+  border: 1px solid red;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  font-size: 2rem;
+  font-weight: 800;
+
+  /* 윗쪽에 남는 공간 왜 생기는지 아시는 분.. */
+  height: 80vh;
+}
+
+/* .loadingDiv * {
+  border: 1px solid black;
+} */
+
+.circles {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 8rem;
+}
+
+.circle {
+  color: var(--color-primaryLight);
+  margin: 1rem;
+  width: 2rem;
+  /* height: 4rem; */
+  padding-top: 4rem;
+}
+
+.circle:first-of-type {
+  animation: dotPop 1.5s infinite;
+}
+.circle:nth-of-type(2) {
+  animation: dotPop 1.5s 0.3s infinite;
+}
+.circle:nth-of-type(3) {
+  animation: dotPop 1.5s 0.6s infinite;
+}
+
+@keyframes dotPop {
+  from {
+    color: var(--color-primaryLight);
+  }
+  20% {
+    color: var(--color-primary);
+    padding-top: 0rem;
+  }
+  60% {
+    padding-top: 4rem;
+  }
+  to {
+    color: var(--color-primaryLight);
+  }
+}

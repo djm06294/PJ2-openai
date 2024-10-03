@@ -4,6 +4,9 @@
   padding: 1rem 1.5rem;
   margin: 1.5rem 0;
 }
+/* .results * {
+  border: 1px solid black;
+} */
 
 .results.correct {
   border: 2px solid yellowgreen;
@@ -21,15 +24,22 @@
 }
 
 .results .correctAns {
-  padding-left: 2rem;
+  padding-left: 3rem;
   color: red;
 }
 
+.results i {
+  color: var(--c-grayPale);
+  margin-right: 1rem;
+}
+.results .wrongAns {
+  /* 왜 이 차이가 생기는지 모르겠음 */
+  padding-left: 0.5rem;
+}
 .results.wrong .wrongAns {
   color: var(--c-grayPale);
   text-decoration: line-through;
 }
-.results i {
-  color: var(--c-grayPale);
-  margin-right: 0.5rem;
+.results.correct .wrongAns {
+  color: black;
 }

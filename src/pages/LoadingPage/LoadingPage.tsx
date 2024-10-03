@@ -3,6 +3,10 @@ import { useQuizOption } from "../../quiz_zustand.ts";
 import useQuiz from "../../quiz_zustand.ts";
 import "../../types.d.ts";
 
+import styles from "./LoadingPage.module.css";
+import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
+import { faCircle } from "@fortawesome/free-solid-svg-icons";
+
 import { useEffect } from "react";
 import fetchQuiz from "../../api.ts";
 import { useNavigate } from "react-router-dom";
@@ -39,5 +43,16 @@ export default function LoadingPage() {
       .catch(() => {});
   }, []);
 
-  return <div style={{ fontSize: "3rem" }}>loading</div>;
+  return (
+    <>
+      <div className={styles.loadingDiv}>
+        <div className={styles.circles}>
+          <FontAwesomeIcon icon={faCircle} className={styles.circle} />
+          <FontAwesomeIcon icon={faCircle} className={styles.circle} />
+          <FontAwesomeIcon icon={faCircle} className={styles.circle} />
+        </div>
+        <p>퀴즈를 생성하고 있어요.</p>
+      </div>
+    </>
+  );
 }
