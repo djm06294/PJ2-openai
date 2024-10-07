@@ -25,7 +25,17 @@ export default function ResultComp({
         <i>A{idx + 1}</i>
         <i className={styles.wrongAns}>{userAns}</i>
       </div>
-      {isCorrect ? "" : <div className={styles.correctAns}>{quiz.answer}</div>}
+      {isCorrect ? (
+        ""
+      ) : (
+        <div className={styles.correctAns}>
+          {typeof quiz.answer === "string"
+            ? quiz.answer
+            : quiz.answer
+            ? "true"
+            : "false"}
+        </div>
+      )}
     </div>
   );
 }

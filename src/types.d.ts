@@ -25,13 +25,26 @@ type QuizOption = {
   quizNum: QuizNum;
 };
 
-interface Quiz {
-  question: string;
-  options: string[];
-  answer: string;
-}
+type Quiz =
+  | {
+      question: string;
+      options: string[];
+      answer: string;
+    }
+  | {
+      question: string;
+      option: boolean;
+      answer: boolean;
+    }
+  | {
+      question: string;
+      answer: string;
+    };
+
 interface QuizResponse {
-  MultipleQuestion: Quiz[];
+  MultipleQuestion?: Quiz[];
+  TrueOrFalse?: Quiz[];
+  FillBlank?: Quiz[];
 }
 interface TopicType {
   id: number;

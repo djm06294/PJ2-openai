@@ -12,7 +12,9 @@ import fetchQuiz from "../../api.ts";
 import { useNavigate } from "react-router-dom";
 
 export default function LoadingPage() {
-  const { quizzes, setQuiz, removeQuiz } = useQuiz((state) => state);
+  const { quizzes, setQuiz, setQuizType, removeQuiz } = useQuiz(
+    (state) => state
+  );
   const { quizOption, resetQuizOption } = useQuizOption((state) => state);
   const { removeAnswer } = userAnswer((state) => state);
   const navigate = useNavigate();
@@ -23,8 +25,18 @@ export default function LoadingPage() {
       const data: QuizResponse = await fetchQuiz(quizOption);
       resetQuizOption();
 
-      setQuiz(data.MultipleQuestion);
-      console.log("quizzes", data.MultipleQuestion);
+      if ("MultipleQuestion" in data) {
+        setQuizType("객관식");
+        setQuiz(data.MultipleQuestion as Quiz[]);
+      } else if ("TrueOrFalse" in data) {
+        setQuizType("OX 퀴즈");
+        setQuiz(data.TrueOrFalse as Quiz[]);
+      } else if ("FillBlank" in data) {
+        setQuizType("빈칸 채우기");
+        setQuiz(data.FillBlank as Quiz[]);
+      }
+
+      console.log("quizzes", data);
       return true;
     } catch (e) {
       console.log("fetchquiz err: ", e);

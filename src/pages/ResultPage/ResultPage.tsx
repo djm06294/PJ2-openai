@@ -42,7 +42,13 @@ export default function ResultPage() {
                 isCorrect={isCorrect}
                 idx={i}
                 quiz={v}
-                userAns={answers[i]}
+                userAns={
+                  typeof answers[i] === "string"
+                    ? answers[i]
+                    : answers[i]
+                    ? "true"
+                    : "false"
+                }
               />
             );
           })}

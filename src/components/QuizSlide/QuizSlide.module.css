@@ -19,9 +19,10 @@
 
 .slide .options {
   /* border: 1px solid red; */
+  display: flex;
 }
 
-.slide .options button {
+.slide .options button.MultipleQuestion {
   width: 100%;
   box-shadow: 0 0 4px var(--c-gray);
   border-radius: 1rem;
@@ -32,9 +33,29 @@
   text-align: left;
 }
 
+.slide .options button.TrueOrFalse {
+  /* width: 30%; */
+  box-shadow: 0 0 4px var(--c-gray);
+  border-radius: 1rem;
+  margin: 7rem;
+  padding: 10%;
+
+  text-align: left;
+}
+
 .slide .options button:hover,
 .slide .options button.active {
   box-shadow: 0 0 6px var(--color-main);
 }
-.slide .options button.active::after {
+
+.slide .FillBlank {
+  width: 100%;
+  box-shadow: 0 0 4px var(--c-gray);
+  border-radius: 1rem;
+  font-size: 1.5rem;
+  height: 4rem;
+  margin: 2rem;
+  padding: 0.2rem 2rem;
+
+  text-align: left;
 }

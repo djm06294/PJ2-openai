@@ -17,7 +17,7 @@ import { Link } from "react-router-dom";
 import { useEffect, useState } from "react";
 
 export default function QuizPage() {
-  const { quizzes, getCountQuiz } = useQuiz((state) => state);
+  const { quizzes, quizType, getCountQuiz } = useQuiz((state) => state);
   const { answers, getCountAnswer } = userAnswer((state) => state);
   const [isSubmitActive, setIsSubmitActive] = useState(false);
 
@@ -25,6 +25,9 @@ export default function QuizPage() {
     if (getCountQuiz() != 0 && getCountAnswer() === getCountQuiz())
       setIsSubmitActive(true);
   }, [answers]);
+  useEffect(() => {
+    console.log("quizType", quizType);
+  });
   return (
     <>
       <Header />
@@ -50,7 +53,6 @@ export default function QuizPage() {
               isSubmitActive ? styles.active : ""
             }`}
             disabled={!isSubmitActive}
-            // onClick={}
           >
             제출하기
           </button>
